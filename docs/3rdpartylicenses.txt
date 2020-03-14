@@ -119,6 +119,7 @@ MIT
 MIT
 
 @reactgular/layouts
+MIT
 
 @reactgular/observables
 MIT
