@@ -1,0 +1,21 @@
+<mat-toolbar color="primary">
+    <button *ngIf="mobile$ | async"
+            class="mr-2"
+            mat-icon-button
+            (click)="mobileState.toggleMenuShow()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span class="mr-2">Demo App</span>
+    <button mat-icon-button
+            matTooltip="Switch between desktop and mobile"
+            (click)="mobileState.toggleMobile()">
+        <mat-icon>{{mobileIcon$ | async}}</mat-icon>
+    </button>
+    <rg-toggle-state class="ml-auto"
+                     matTooltip="Show right panel"
+                     [state$]="mobileState.selectFilterShow()"
+                     iconOn="filter_list"
+                     iconOff="filter_list"
+                     (toggle)="mobileState.toggleFilterShow()"
+    ></rg-toggle-state>
+</mat-toolbar>

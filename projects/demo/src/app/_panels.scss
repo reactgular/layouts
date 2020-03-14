@@ -1,0 +1,10 @@
+@import "config";
+
+.rg-shadow-panel {
+    transition: box-shadow 250ms ease-in-out;
+    box-shadow: none;
+
+    &.rg-shadow-enable {
+        box-shadow: 0 0 0.35rem rgba(0, 0, 0, 0.25);
+    }
+}

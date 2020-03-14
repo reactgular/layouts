@@ -1,0 +1,34 @@
+@import "../../../config";
+
+:host {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+
+    .panel {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+    }
+
+    .panel[data-dock='top'] {
+        background-color: #bbb;
+    }
+
+    .panel[data-dock='left'], .panel[data-dock='right'] {
+        background-color: #ddd;
+    }
+
+    .panel[data-dock='bottom'] {
+        background-color: #eee;
+    }
+
+    .panel-center {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+    }
+}

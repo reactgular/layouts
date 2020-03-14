@@ -1,0 +1,14 @@
+:host {
+    display: flex;
+    width: 20rem;
+    border-bottom: 1rem solid transparent;
+    border-left: 1rem solid transparent;
+
+    mat-card {
+        width: 100%;
+    }
+
+    img[mat-card-image] {
+        -webkit-filter: grayscale(1);
+    }
+}

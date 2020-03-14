@@ -1,0 +1,6 @@
+<button class="ml-auto"
+        mat-icon-button
+        [class.active]="state$ | async"
+        (click)="toggle.emit()">
+    <mat-icon>{{(state$ | async) ? iconOn : (iconOff || iconOn)}}</mat-icon>
+</button>

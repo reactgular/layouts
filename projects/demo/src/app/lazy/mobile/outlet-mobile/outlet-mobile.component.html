@@ -1,0 +1,26 @@
+<rg-layout [config]="config"
+           (events)="layoutEvent($event)">
+    <rg-top-bar *rgPanel="'top'; config: top$ | async"></rg-top-bar>
+    <rg-side-bar *rgPanel="'left'; config: left$ | async"
+                 [rgSideShadow]="menuShadow$ | async"
+                 [width]="200"></rg-side-bar>
+    <rg-filter-bar *rgPanel="'right'; config: right$ | async"
+                   [rgSideShadow]="filterShadow$ | async"></rg-filter-bar>
+    <rg-footer-bar *rgPanel="'bottom'; config: bottom$ | async"
+                   [rgSideShadow]="footerShadow$ | async"></rg-footer-bar>
+    <div *rgCenter
+         class="rg-sample-content">
+        <div class="d-flex mt-3 mb-3">
+            <rg-home-button class="mr-3"></rg-home-button>
+            <button mat-stroked-button
+                    (click)="showCards = !showCards">
+                Cards
+            </button>
+        </div>
+        <div *ngIf="showCards"
+             class="d-flex flex-wrap">
+            <rg-social-card *ngFor="let id of socialCards"
+                            [cardId]="id"></rg-social-card>
+        </div>
+    </div>
+</rg-layout>

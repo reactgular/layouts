@@ -1,0 +1,42 @@
+<!--suppress AngularUndefinedBinding -->
+<ng-container *ngIf="panel">
+    <div class="rg-panel-content"
+         #divPanelContent
+         [style.padding-top.px]="panel.dock === 'top' ? pushed(panel) : undefined"
+         [style.padding-bottom.px]="panel.dock === 'bottom' ? pushed(panel) : undefined"
+         [style.padding-left.px]="panel.dock === 'left' ? pushed(panel) : undefined"
+         [style.padding-right.px]="panel.dock === 'right' ? pushed(panel) : undefined"
+         [style.transition]="transitionPanelContent$ | async"
+         (transitionstart)="transitionEvent($event, divPanelContent)"
+         (transitioncancel)="transitionEvent($event, divPanelContent)"
+         (transitionend)="transitionEvent($event, divPanelContent)">
+        <rg-panel-split *ngIf="children?.length; else panelCenter"
+                        [panels]="children"
+                        [center]="center"></rg-panel-split>
+        <rg-panel-overlay *ngIf="panel.overlay"
+                          [dock]="panel.dock"></rg-panel-overlay>
+    </div>
+    <div class="rg-panel"
+         #divPanel
+         [class.rg-panel-horizontal]="isHorizontal"
+         [class.rg-panel-vertical]="!isHorizontal"
+         [class.rg-panel-top]="panel.dock === 'top'"
+         [class.rg-panel-bottom]="panel.dock === 'bottom'"
+         [class.rg-panel-left]="panel.dock === 'left'"
+         [class.rg-panel-right]="panel.dock === 'right'"
+         [style.height.px]="isHorizontal ? panel.size : undefined"
+         [style.width.px]="!isHorizontal ? panel.size : undefined"
+         [style.margin-top.px]="panel.dock === 'top' ? pulled(panel) : undefined"
+         [style.margin-bottom.px]="panel.dock === 'bottom' ? pulled(panel) : undefined"
+         [style.margin-left.px]="panel.dock === 'left' ? pulled(panel) : undefined"
+         [style.margin-right.px]="panel.dock === 'right' ? pulled(panel) : undefined"
+         [style.transition]="transitionPanel$ | async"
+         (transitionstart)="transitionEvent($event, divPanel)"
+         (transitioncancel)="transitionEvent($event, divPanel)"
+         (transitionend)="transitionEvent($event, divPanel)">
+        <ng-container *ngTemplateOutlet="panel.template"></ng-container>
+    </div>
+</ng-container>
+<ng-template #panelCenter>
+    <ng-container *ngTemplateOutlet="center"></ng-container>
+</ng-template>

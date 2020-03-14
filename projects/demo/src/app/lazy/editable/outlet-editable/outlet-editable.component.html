@@ -1,0 +1,21 @@
+<rg-layout [config]="layoutConfig"
+           (events)="layoutEvent($event)">
+    <ng-container *ngFor="let panel of editableState.panels$ | async; trackBy: trackPanel">
+        <div *rgPanel="panel.dock as layoutPanel; config: panel"
+             [attr.data-dock]="panel.dock"
+             class="panel">
+            <div>{{panel.dock | titlecase}}:{{depth}}:{{panel.order}}</div>
+            <div>{{layoutPanel | json}}</div>
+        </div>
+    </ng-container>
+    <div *rgCenter class="panel-center">
+        <rg-editable *ngIf="createChild; else showControls"
+                     (close)="createChild = false"></rg-editable>
+    </div>
+</rg-layout>
+
+<ng-template #showControls>
+    <rg-editable-controls class="p-3"
+                          (open)="createChild = true"
+                          (close)="close.next()"></rg-editable-controls>
+</ng-template>

@@ -1,0 +1,21 @@
+<mat-toolbar class="rg-logo"
+             [style.width.px]="width">
+    <mat-icon class="logo mr-3" color="accent">business_center</mat-icon>
+    <span>Demo</span>
+    <button *ngIf="isMobile$ | async; else toggleButton"
+            class="ml-auto"
+            mat-icon-button
+            (click)="mobileState.toggleMenuShow()">
+        <mat-icon>close</mat-icon>
+    </button>
+</mat-toolbar>
+<rg-menu></rg-menu>
+<ng-template #toggleButton>
+    <rg-toggle-state
+        class="ml-auto"
+        [state$]="mobileState.selectMenuFloat()"
+        (toggle)="mobileState.toggleMenuFloat()"
+        iconOn="toggle_on"
+        iconOff="toggle_off">
+    </rg-toggle-state>
+</ng-template>

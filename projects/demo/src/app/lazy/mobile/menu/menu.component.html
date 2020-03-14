@@ -1,0 +1,8 @@
+<button *ngFor="let item of items; let i = index"
+        class="rg-button"
+        [class.active]="i === active"
+        mat-button
+        (click)="active = i">
+    <mat-icon>{{item.icon}}</mat-icon>
+    <span>{{item.title}}</span>
+</button>

@@ -1,0 +1,8 @@
+:host {
+  .mat-dialog-title .mat-icon-button {
+    $size: 28px;
+    width: $size;
+    height: $size;
+    line-height: $size;
+  }
+}

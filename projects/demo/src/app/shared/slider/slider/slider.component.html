@@ -1,0 +1,20 @@
+<mat-label>{{label}}</mat-label>
+<mat-slider class="w-100"
+            [displayWith]="displayWith"
+            [thumbLabel]="thumbLabel"
+            [value]="value"
+            [step]="step"
+            [min]="min"
+            [max]="max"
+            [color]="color"
+            [invert]="invert"
+            [tickInterval]="tickInterval"
+            [disabled]="disabled"
+            (change)="change.emit($event)"
+            (input)="input.emit($event)">
+</mat-slider>
+<span class="mat-form-field mat-form-field-subscript-wrapper mat-form-field-appearance-legacy"
+      [style.position]="'relative'"
+      [style.margin-top.px]="0">
+    <mat-hint><ng-content></ng-content></mat-hint>
+</span>

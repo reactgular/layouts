@@ -1,0 +1,18 @@
+<mat-toolbar class="rg-header">
+    <button *ngIf="isMobile$ | async"
+            class="mr-2"
+            mat-icon-button
+            (click)="mobileState.toggleFilterShow()">
+        <mat-icon>close</mat-icon>
+    </button>
+    <span>Filters</span>
+</mat-toolbar>
+<form class="flex flex-column p-3 overflow-auto">
+    <mat-form-field class="w-100"
+                    *ngFor="let id of fields">
+        <mat-label>{{faker.lorem.words(2)}}</mat-label>
+        <input matInput
+               [placeholder]="faker.lorem.words(2)"
+               [value]="faker.lorem.words(3)">
+    </mat-form-field>
+</form>

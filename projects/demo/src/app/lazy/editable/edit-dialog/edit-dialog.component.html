@@ -1,0 +1,33 @@
+<div mat-dialog-title
+     class="d-flex">
+    <span class="mr-auto">Editor</span>
+    <button mat-icon-button
+            mat-dialog-close>
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<div mat-dialog-content>
+    <mat-form-field class="w-100">
+        <mat-select [(value)]="editPanel">
+            <mat-option *ngFor="let dock of ['top','left','right','bottom']"
+                        [value]="dock">
+                {{dock | titlecase}}
+            </mat-option>
+        </mat-select>
+        <mat-hint>Select which panel to edit.</mat-hint>
+    </mat-form-field>
+    <rg-edit-panel class="mb-3 mt-3"
+                   [dock]="editPanel"></rg-edit-panel>
+</div>
+<mat-dialog-actions class="d-flex">
+    <button mat-stroked-button
+            color="primary"
+            (click)="editableState.reset()">
+        Reset
+    </button>
+    <button class="ml-auto"
+            mat-stroked-button
+            mat-dialog-close>
+        Close
+    </button>
+</mat-dialog-actions>

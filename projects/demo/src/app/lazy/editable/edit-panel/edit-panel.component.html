@@ -1,0 +1,46 @@
+<ng-container *ngIf="panel$ | async as panel">
+    <mat-form-field class="w-100 mb-3">
+        <mat-label>Order</mat-label>
+        <mat-select [value]="panel.order"
+                    (valueChange)="editableState.patchDock(panel.dock, {order: $event})">
+            <mat-option *ngFor="let order of [null, 0,1,2,3]" [value]="order">
+                {{order === null ? 'Default' : order}}
+            </mat-option>
+        </mat-select>
+        <mat-hint>Unique values control how panels overlap.</mat-hint>
+    </mat-form-field>
+    <rg-slider label="Size"
+        [thumbLabel]="true"
+               [value]="panel.size"
+               [step]="10"
+               [min]="0"
+               [max]="500"
+               (change)="editableState.patchDock(panel.dock, {size: $event.value})">
+        Width or height of a panel.
+    </rg-slider>
+    <rg-slider class="mt-3"
+               label="Push"
+               [thumbLabel]="true"
+               [value]="panel.push"
+               [step]="10"
+               [min]="0"
+               [max]="500"
+               (change)="editableState.patchDock(panel.dock, {push: $event.value})">
+        Pushes content out from under the panel.
+    </rg-slider>
+    <rg-slider class="mt-3"
+               label="Pull"
+               [thumbLabel]="true"
+               [value]="panel.pull"
+               [step]="10"
+               [min]="0"
+               [max]="500"
+               (change)="editableState.patchDock(panel.dock, {pull: $event.value})">
+        Pulls the panel off screen.
+    </rg-slider>
+    <mat-slide-toggle class="rg-slide-align-right mb-3 mt-3"
+                      [checked]="panel.overlay"
+                      (change)="editableState.patchDock(panel.dock, {overlay: $event.checked})">
+        Overlay
+    </mat-slide-toggle>
+</ng-container>

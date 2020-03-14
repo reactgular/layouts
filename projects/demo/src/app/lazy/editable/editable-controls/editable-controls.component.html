@@ -1,0 +1,32 @@
+<div class="d-flex mb-3">
+    <button class="mr-auto"
+            mat-stroked-button
+            matTooltip="Edit the panels layout"
+            (click)="edit()"
+            [disabled]="sharedDisabled.disabled$ | async">
+        <mat-icon>edit</mat-icon>
+        Edit
+    </button>
+
+    <button *ngIf="depth !== 1"
+            mat-icon-button
+            matTooltip="Close child layout"
+            [disabled]="sharedDisabled.disabled$ | async"
+            (click)="close.next()">
+        <mat-icon>close</mat-icon>
+    </button>
+
+    <rg-home-button *ngIf="depth === 1"
+                    [disabled]="sharedDisabled.disabled$ | async"></rg-home-button>
+</div>
+
+<ng-container *ngIf="depth < 3">
+    <button class="mb-3 mr-auto"
+            mat-stroked-button
+            matTooltip="Insert an inner layout"
+            [disabled]="sharedDisabled.disabled$ | async"
+            (click)="open.next()">
+        <mat-icon>add</mat-icon>
+        Create Child
+    </button>
+</ng-container>

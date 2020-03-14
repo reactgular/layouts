@@ -1,0 +1,21 @@
+rg-slider {
+    display: flex;
+    flex-direction: column;
+
+    mat-label {
+        font-size: 12px;
+        color: rgba(0, 0, 0, .54);
+        white-space: nowrap;
+    }
+
+    .mat-slider {
+        padding: 0;
+        height: 48px - (8px * 2);
+    }
+
+    .mat-slider-horizontal .mat-slider-wrapper {
+        left: 0;
+        right: 0;
+        top: 23px - 8px;
+    }
+}
