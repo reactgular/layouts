@@ -1,6 +1,5 @@
 import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
 import {Observable} from 'rxjs';
-import {map} from 'rxjs/operators';
 import {MobileState} from '../mobile-state/mobile-state.service';
 
 @Component({
@@ -17,8 +16,6 @@ import {MobileState} from '../mobile-state/mobile-state.service';
 export class SideBarComponent implements OnInit {
     public isMobile$: Observable<boolean>;
 
-    public lockIcon$: Observable<string>;
-
     public locked$: Observable<boolean>;
 
     @Input()
@@ -29,9 +26,6 @@ export class SideBarComponent implements OnInit {
 
     public ngOnInit(): void {
         this.locked$ = this.mobileState.selectMenuFloat();
-        this.lockIcon$ = this.locked$.pipe(
-            map(locked => locked ? 'toggle_on' : 'toggle_off')
-        );
         this.isMobile$ = this.mobileState.selectMobile();
     }
 }
