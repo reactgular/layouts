@@ -7,32 +7,32 @@
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
-          "styleext": "scss",
+          "style": "scss",
           "changeDetection": "OnPush",
           "flat": false,
-          "spec": false
+          "skipTests": true
         },
         "@schematics/angular:class": {
           "skipTests": true
         },
         "@schematics/angular:directive": {
           "flat": false,
-          "spec": false
+          "skipTests": true
         },
         "@schematics/angular:guard": {
           "flat": false,
-          "spec": false
+          "skipTests": true
         },
         "@schematics/angular:module": {
           "skipTests": true
         },
         "@schematics/angular:pipe": {
           "flat": false,
-          "spec": false
+          "skipTests": true
         },
         "@schematics/angular:service": {
           "flat": false,
-          "spec": false
+          "skipTests": true
         }
       },
       "root": "projects/demo",
@@ -47,7 +47,7 @@
             "main": "projects/demo/src/main.ts",
             "polyfills": "projects/demo/src/polyfills.ts",
             "tsConfig": "projects/demo/tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "projects/demo/src/favicon.ico",
               "projects/demo/src/assets"
@@ -70,7 +70,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -115,32 +114,32 @@
       "prefix": "rg",
       "schematics": {
         "@schematics/angular:component": {
-          "styleext": "scss",
+          "style": "scss",
           "changeDetection": "OnPush",
           "flat": true,
-          "spec": true
+          "skipTests": false
         },
         "@schematics/angular:class": {
           "skipTests": true
         },
         "@schematics/angular:directive": {
           "flat": true,
-          "spec": true
+          "skipTests": false
         },
         "@schematics/angular:guard": {
           "flat": true,
-          "spec": true
+          "skipTests": false
         },
         "@schematics/angular:module": {
           "skipTests": true
         },
         "@schematics/angular:pipe": {
           "flat": true,
-          "spec": true
+          "skipTests": false
         },
         "@schematics/angular:service": {
           "flat": true,
-          "spec": true
+          "skipTests": false
         }
       },
       "architect": {
@@ -149,6 +148,11 @@
           "options": {
             "tsConfig": "projects/layouts/tsconfig.lib.json",
             "project": "projects/layouts/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/layouts/tsconfig.lib.prod.json"
+            }
           }
         },
         "test": {
