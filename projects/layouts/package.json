@@ -1,6 +1,6 @@
 {
   "name": "@reactgular/layouts",
-  "version": "1.0.0-beta.0",
+  "version": "1.0.0-beta.1",
   "description": "Layouts is an Angular component library that implements a *border layout* using a container that can dock child panels into Top, Left, Right, Bottom  and Center regions.",
   "author": "reactgular.com",
   "homepage": "https://reactgular.com/",
@@ -17,8 +17,11 @@
     "angular-library",
     "layout"
   ],
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
   "peerDependencies": {
-    "@angular/common": "^9.0.0",
-    "@angular/core": "^9.0.0"
+    "@angular/common": "^10.0.0",
+    "@angular/core": "^10.0.0"
   }
 }
