@@ -18,7 +18,8 @@
     "build": "npm run build:layouts && npm run build:demo",
     "build:watch": "ng build layouts --watch",
     "build:demo": "ng build demo --prod --deploy-url \"https://reactgular.github.io/layouts/\"",
-    "build:layouts": "ng build layouts && cp README.md dist/layouts",
+    "build:layouts": "ng build layouts --prod && cp README.md dist/layouts",
+    "beta": "npm run lint && npm run build:layouts && cd dist/layouts && npm publish --tag beta",
     "test": "ng test layouts --watch=false --code-coverage=true",
     "test:watch": "ng test layouts",
     "lint": "ng lint"
