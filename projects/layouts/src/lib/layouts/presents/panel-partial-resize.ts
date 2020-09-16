@@ -23,7 +23,6 @@ export function PanelPartialResize(
     return combineLatest([order$, narrow$, wide$, overlay$, toggle$]).pipe(
         distinctStringify(),
         map(([order, narrow, wide, overlay, toggle]) => {
-            console.log({order, narrow, wide, overlay, toggle});
             return {
                 order,
                 size: toggle ? wide : narrow,

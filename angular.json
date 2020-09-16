@@ -55,7 +55,11 @@
             "styles": [
               "projects/demo/src/app/app.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "faker",
+              "observables"
+            ]
           },
           "configurations": {
             "production": {

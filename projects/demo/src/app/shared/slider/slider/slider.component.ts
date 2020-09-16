@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angular/core';
-import {ThemePalette} from '@angular/material/core/typings/common-behaviors/color';
-import {MatSliderChange} from '@angular/material/slider/typings/slider';
+import {ThemePalette} from '@angular/material/core';
+import {MatSliderChange} from '@angular/material/slider';
 
 @Component({
     selector: 'rg-slider',

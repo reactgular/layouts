@@ -1,5 +1,5 @@
 import {ChangeDetectionStrategy, Component, Optional, Output, SkipSelf, ViewContainerRef} from '@angular/core';
-import {MatDialog} from '@angular/material';
+import {MatDialog} from '@angular/material/dialog';
 import {Destroyable} from '@reactgular/destroyable';
 import {isLayoutOverlayEvent, LayoutConfig, LayoutEvent} from '@reactgular/layouts';
 import {Subject} from 'rxjs';
