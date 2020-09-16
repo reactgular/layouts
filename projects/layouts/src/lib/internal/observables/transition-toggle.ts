@@ -6,7 +6,7 @@ export function transitionToggle(
     enabled$: Observable<boolean>,
     properties: string[]
 ): Observable<string> {
-    return combineLatest(animation$, enabled$).pipe(
+    return combineLatest([animation$, enabled$]).pipe(
         map(([animation, enabled]) => {
             return enabled && Boolean(animation$)
                 ? properties.map(property => `${property} ${animation}`).join(', ')
